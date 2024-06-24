@@ -1,0 +1,69 @@
+/* SignalSlavesList.css */
+
+
+.container_LIST {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px; /* Adjust font size as needed */
+  color: #333; /* Adjust color as needed */
+}
+
+
+.filter {
+  margin-bottom: 20px;
+}
+
+.filter label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filter input {
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filter button:hover {
+  background-color: #0056b3;
+}
+
+.signal-slaves-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Add margin to separate table from title/filter */
+}
+
+.signal-slaves-table th, .signal-slaves-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.signal-slaves-table th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.signal-slaves-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.signal-slaves-table tr:hover {
+  background-color: #ddd;
+}

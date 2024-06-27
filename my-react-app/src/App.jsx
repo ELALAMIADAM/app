@@ -3,7 +3,7 @@ import Footer from "./footer.jsx";
 import Data from "./pages/Data.jsx";
 import React from 'react';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header.jsx';
 import Home from './pages/Home.jsx';
 import DASH_List from "./pages/DASH_List.jsx";

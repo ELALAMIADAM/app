@@ -155,28 +155,26 @@ function rollbackAndRelease(connection, res, err) {
 
 
 
-
 app.get('/signal_slaves', (req, res) => {
   let sql = `
-  SELECT *  FROM signal_slave ss 
-  JOIN signals s on ss.address_ip = s.address_ip
-  join slaves sl on sl.logical_address=ss.logical_address
+    SELECT * FROM signal_slave ss 
+    JOIN signals s ON ss.address_ip = s.address_ip
+    JOIN slaves sl ON sl.logical_address = ss.logical_address
   `;
-  const { logical_address, address_ip} = req.query;
-
+  
+  const { logical_address, address_ip } = req.query;
   const filters = [];
   const params = [];
 
   if (logical_address) {
-    filters.push('logical_address = ?');
+    filters.push('ss.logical_address = ?');
     params.push(logical_address);
   }
 
   if (address_ip) {
-    filters.push('address_ip = ?');
+    filters.push('ss.address_ip = ?');
     params.push(address_ip);
   }
-
 
   if (filters.length > 0) {
     sql += ' WHERE ' + filters.join(' AND ');
@@ -184,11 +182,13 @@ app.get('/signal_slaves', (req, res) => {
 
   pool.execute(sql, params, (err, results) => {
     if (err) {
-      return res.status(500).json({ error: err.message });
+      console.error('Database error:', err);
+      return res.status(500).json({ error: 'Internal server error' });
     }
     res.json(results);
   });
 });
+
 
 app.get('/dashboard', (req, res) => {
   const sql = `

@@ -1,6 +1,3 @@
-/* SignalSlavesList.css */
-
-
 .container_LIST {
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -8,23 +5,33 @@
 
 h2 {
   margin-bottom: 20px;
-  font-size: 24px; /* Adjust font size as needed */
-  color: #333; /* Adjust color as needed */
+  font-size: 24px;
+  color: #333;
 }
-
 
 .filter {
   margin-bottom: 20px;
 }
 
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items at the top */
+}
+
+.filter-input-left,
+.filter-input-right {
+  flex: 1; /* Equal width for both filter inputs */
+}
+
 .filter label {
-  margin-right: 10px;
+  margin-right: 5px;
   font-weight: bold;
 }
 
 .filter input {
   padding: 5px;
-  width: 200px;
+  width: 100%; /* Take up full width of parent */
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -46,10 +53,11 @@ h2 {
 .signal-slaves-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px; /* Add margin to separate table from title/filter */
+  margin-top: 20px;
 }
 
-.signal-slaves-table th, .signal-slaves-table td {
+.signal-slaves-table th,
+.signal-slaves-table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;

@@ -39,9 +39,6 @@ const Data = () => {
     fetchData();
   };
 
-  
-
-  
   useEffect(() => {
     fetchData();
   }, []);
@@ -59,20 +56,26 @@ const Data = () => {
       <h2>Signal Slaves List</h2>
       <div className="filter">
         <form onSubmit={handleSubmit}>
-          <label >Filter by Logical Address:</label>
-          <input
-            type="number" 
-            min='0'
-            value={logicalAddressFilter}
-            onChange={handleLogicalAddressChange}
-          />
-          <label >Filter by Address IP:</label>
-          <input
-            type="number"
-            min='0'
-            value={addressIpFilter}
-            onChange={handleAddressIpChange}
-          />
+          <div className="filter-input">
+            <label htmlFor="logicalAddressFilter">Filter by Logical Address:</label>
+            <input
+              type="number"
+              min="0"
+              id="logicalAddressFilter"
+              value={logicalAddressFilter}
+              onChange={handleLogicalAddressChange}
+            />
+          </div>
+          <div className="filter-input">
+            <label htmlFor="addressIpFilter">Filter by Address IP:</label>
+            <input
+              type="number"
+              min="0"
+              id="addressIpFilter"
+              value={addressIpFilter}
+              onChange={handleAddressIpChange}
+            />
+          </div>
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -87,13 +90,11 @@ const Data = () => {
         </thead>
         <tbody>
           {signalSlaves.map((slave) => (
-            <tr key={slave.logical_address + slave.slave_name + slave.signal_value +slave.signal_name}>
-              <td>{slave.slave_name }</td>
+            <tr key={slave.logical_address + slave.slave_name + slave.signal_value + slave.signal_name}>
+              <td>{slave.slave_name}</td>
               <td>{slave.logical_address}</td>
               <td>{slave.signal_name}</td>
-              <td>{slave.signal_value +' '+ slave.unity}</td>
-              
-
+              <td>{slave.signal_value + ' ' + slave.unity}</td>
             </tr>
           ))}
         </tbody>
@@ -103,5 +104,3 @@ const Data = () => {
 };
 
 export default Data;
-
-
